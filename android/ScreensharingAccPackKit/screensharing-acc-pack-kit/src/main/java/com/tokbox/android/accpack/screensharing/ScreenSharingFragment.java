@@ -285,7 +285,7 @@ public class ScreenSharingFragment extends Fragment implements AccPackSession.Se
     * Stop sharing the screen.
     */
     public void stop(){
-        addLogEvent(OpenTokConfig.LOG_ACTION_STOP, OpenTokConfig.LOG_VARIATION_ATTEMPT);
+        addLogEvent(OpenTokConfig.LOG_ACTION_END, OpenTokConfig.LOG_VARIATION_ATTEMPT);
         stopScreenCapture();
         if (mScreenPublisher != null) {
             mSession.unpublish(mScreenPublisher);
@@ -658,7 +658,7 @@ public class ScreenSharingFragment extends Fragment implements AccPackSession.Se
     public void onError(PublisherKit publisherKit, OpentokError opentokError) {
         onScreenSharingError(ERROR + ": "+opentokError.getMessage());
         if (isStarted()){
-            addLogEvent(OpenTokConfig.LOG_ACTION_STOP, OpenTokConfig.LOG_VARIATION_ERROR);
+            addLogEvent(OpenTokConfig.LOG_ACTION_END, OpenTokConfig.LOG_VARIATION_ERROR);
         }
         else {
             addLogEvent(OpenTokConfig.LOG_ACTION_START, OpenTokConfig.LOG_VARIATION_ERROR);

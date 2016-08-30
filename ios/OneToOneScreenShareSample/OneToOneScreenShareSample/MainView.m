@@ -229,7 +229,7 @@
 }
 
 - (void)cleanCanvas {
-    [self.annotationView eraseAll];
+    [self.annotationView.annotationView removeAllAnnotatables];
 }
 
 #pragma mark - other controls

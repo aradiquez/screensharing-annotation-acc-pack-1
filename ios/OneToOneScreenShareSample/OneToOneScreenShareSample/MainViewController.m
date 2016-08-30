@@ -72,8 +72,8 @@
     [super viewDidLoad];
     
     self.mainView = (MainView *)self.view;
-    self.oneToOneCommunicator = [OTOneToOneCommunicator communicator];
-    self.screenSharer = [OTScreenSharer screenSharer];
+    self.oneToOneCommunicator = [OTOneToOneCommunicator sharedInstance];
+    self.screenSharer = [OTScreenSharer sharedInstance];
 #if !(TARGET_OS_SIMULATOR)
     [self.mainView showReverseCameraButton];
 #endif
@@ -112,6 +112,7 @@
     
     
     switch (signal) {
+
         case OTSessionDidConnect: {
             [self.mainView connectCallHolder:YES];
             [self.mainView updateControlButtonsForCall];
